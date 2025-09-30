@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nguyễn Dương Yến Phi – SAP BW Consultant</title>
+
+<style>
+  /* ===== THEME (Sea Side) ===== */
+  :root{
+    --sea-1:#26648E; --sea-2:#4F8FC0; --sea-3:#53D2DC; --sand:#FFE3B3;
+    --ink:#0F172A; --muted:#475569; --line:#E2E8F0;
+    --fs:16px; --radius:14px; --sidebar-w:320px; --gap:18px;
+  }
+
+  /* ===== BASE ===== */
+  *{box-sizing:border-box}
+  body{
+    margin:0; font:500 var(--fs)/1.55 "Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,"Helvetica Neue",sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 700px at 10% -20%, #EAF7FA 0%, transparent 65%),
+      radial-gradient(900px 600px at 100% -15%, #FFF5E0 0%, transparent 60%),
+      #fff;
+  }
+
+  /* ===== APP LAYOUT ===== */
+  .app{ display:grid; grid-template-rows:64px 1fr; min-height:100vh; }
+  .topbar{
+    display:flex; align-items:center; padding:0 24px; color:#fff; font-weight:700; letter-spacing:.2px;
+    background:linear-gradient(90deg,var(--sea-1),var(--sea-2));
+  }
+  .brand-dot{ width:12px;height:12px;border-radius:50%;background:var(--sea-3);margin-right:12px;box-shadow:0 0 0 3px rgba(255,255,255,.18); }
+  .title{ font-size:clamp(18px,2.6vw,22px); }
+
+  /* ===== GRID WITH AREAS (PC default) ===== */
+  .main{
+    display:grid;
+    grid-template-columns:var(--sidebar-w) 1fr;
+    gap:var(--gap);
+    padding:var(--gap);
+    grid-template-areas: "sidebar content"; /* PC: Sidebar left, Content right */
+    align-items:start;
+  }
+  .profile-bar{ grid-area: sidebar; }
+  .content{ grid-area: content; }
+
+  /* ===== SIDEBAR ===== */
+  .profile-bar{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:18px;
+    position:sticky; top:var(--gap); height:fit-content; box-shadow:0 8px 20px rgba(38,100,142,.06);
+  }
+  .avatar{
+    width:160px;height:160px;border-radius:50%;overflow:hidden;display:flex;justify-content:center;align-items:center;
+    background:var(--sea-2); margin-bottom:12px;
+  }
+  .avatar img{ width:100%;height:100%;object-fit:cover;object-position:center top;display:block; }
+  .avatar .initials{ color:#fff;font-weight:800;font-size:18px; }
+  .avatar.has-img .initials{ display:none; }
+
+  .p-name{ font-weight:800;font-size:18px; }
+  .p-title{ color:var(--muted); margin-bottom:12px; }
+  .p-section{ margin-top:18px; }
+  .p-section .h3{ font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.6px;color:var(--sea-1);margin-bottom:8px; }
+  .profile-bar a{ color:var(--sea-2); text-decoration:none; } .profile-bar a:hover{ text-decoration:underline; }
+
+  .timeline{ border-left:3px solid var(--sea-3); margin-left:6px; padding-left:12px; }
+  .tl-item{ margin:10px 0; } .tl-time{ font-size:12px;color:var(--muted); } .tl-title{ font-weight:700; }
+
+  /* ===== CONTENT ===== */
+  .content-wrap{ display:flex; flex-direction:column; gap:var(--gap); }
+  .tab{
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--ink);
+    padding:10px 18px;
+    border-radius:999px;
+    font-weight:700;
+    cursor:pointer;
+    transition:all .25s ease;
+    box-shadow:0 2px 6px rgba(38,100,142,.06);
+   }
+    .tab.active{
+    background:linear-gradient(90deg,var(--sand),#fff);
+    border-color:var(--sea-3);
+    box-shadow:0 0 0 2px rgba(83,210,220,.20) inset, 0 6px 12px rgba(38,100,142,.12);
+   }
+
+  .card,.panel{ background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 20px rgba(79,143,192,.08); }
+  .card .h1{ font-size:22px;font-weight:800;margin-bottom:6px;color:var(--sea-1); }
+  .panel .h2{ font-size:18px;font-weight:800;margin-bottom:6px;color:var(--sea-1); }
+  .panel ul{ margin:8px 0 0 20px; }
+  .highlight{ display:inline-block;padding:2px 8px;border-radius:8px;background:rgba(83,210,220,.15);border:1px dashed var(--sea-3); }
+
+  .ribbon{ display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,rgba(38,100,142,.10),rgba(79,143,192,.10));border:1px dashed rgba(79,143,192,.35); }
+  .r-dot{ width:10px;height:10px;border-radius:50%;background:var(--sea-3); }
+
+  .tab-content{ display:block; } .hidden{ display:none; }
+
+  .badges{ display:flex; gap:10px; flex-wrap:wrap; }
+  .badge{ background:var(--sand); border:1px solid #f6d99c; padding:6px 10px; border-radius:999px; font-weight:700; font-size:13px; }
+
+  /* ===== SKILLS DASHBOARD ===== */
+  #skills .card{ padding:16px; }
+  .chart-card{ background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 6px 14px rgba(79,143,192,.08); }
+  .chart-title{ font-weight:800;color:var(--sea-1);margin-bottom:8px; }
+
+  .cards-grid{
+    display:grid;
+    grid-template-columns: 560px 1fr; /* radar lớn */
+    gap: 14px; align-items: start; width: 100%;
+  }
+  .col-right{ display:grid; gap:14px; }
+  .cards-grid > .chart-card, .cards-grid > .panel{ margin:0; }
+
+  .radar{ max-width:560px; aspect-ratio:1/1; margin:0 auto; }
+  .radar svg{ width:100%; height:100%; }
+  .radar svg text{ font-size:12px; }
+
+  .quad-grid{ display:grid; gap:8px; grid-template-columns:repeat(2,1fr); }
+  .lang-grid{ display:grid; gap:8px; grid-template-columns:repeat(2,1fr); }
+  .d-card{ display:grid; place-items:center; gap:4px; }
+  .d-title{ font-weight:700; color:var(--sea-1); text-align:center; }
+
+  .donut{ --size:84px; width:var(--size); height:var(--size); border-radius:50%;
+    background:conic-gradient(var(--sea-3) calc(var(--v)*1%), #e8f5f8 0);
+    display:grid; place-items:center; box-shadow:0 6px 18px rgba(83,210,220,.18);
+  }
+  .donut.sand{ background:conic-gradient(var(--sand) calc(var(--v)*1%), #fff3dc 0); }
+  .donut span{ width:calc(var(--size) - 20px); height:calc(var(--size) - 20px); border-radius:50%; background:#fff; display:grid; place-items:center;
+    font-weight:800; color:var(--sea-1); box-shadow:inset 0 0 0 2px #edf6fb;
+  }
+
+  .bars{ display:grid; gap:10px; }
+  .bar{ display:grid; grid-template-columns:220px 1fr 48px; gap:10px; align-items:center; }
+  .bar>span{ font-weight:600; }
+  .bar .pct{ text-align:right; color:var(--muted); font-weight:700; font-style:normal; }
+  .bar-track{ height:12px; background:#eef7fa; border-radius:999px; overflow:hidden; }
+  .bar-fill{ height:100%; width:var(--p); background:linear-gradient(90deg,var(--sea-2),var(--sea-3)); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:1200px){ .cards-grid{ grid-template-columns:520px 1fr; } }
+  @media (max-width:1024px){ .cards-grid{ grid-template-columns:1fr; } .donut{ --size:82px; } }
+
+  /* MOBILE: Sidebar trên, Tabs sticky; PC: tabs bình thường */
+  @media (max-width:860px){
+    .main{
+      grid-template-columns:1fr;
+      grid-template-areas:
+        "sidebar"
+        "content";
+    }
+    .profile-bar{ position: static; top:auto; }
+
+    /* Tabs sticky ngay dưới topbar, không bị lệch giữa màn hình */
+    .tabs{
+      position: sticky;
+      top: 64px;         
+      z-index: 80;
+      padding:10px 12px;
+      margin-top: 0;      
+      left: 0; right: 0;  
+    }
+
+    .content-wrap{ gap: calc(var(--gap) + 2px); }
+
+    .bar{ grid-template-columns:1fr; }
+    .bar .pct{ text-align:left; }
+    .lang-grid{ grid-template-columns:1fr; }
+    .donut{ --size:78px; }
+    .radar{ max-width:420px; }
+  }
+    .tab.active{ background:linear-gradient(90deg,var(--sand),#fff); border-color:var(--sea-3); box-shadow:0 0 0 2px rgba(83,210,220,.20) inset, 0 8px 16px rgba(38,100,142,.12); }
+
+    .content-wrap{ gap: calc(var(--gap) + 2px); }
+
+    .bar{ grid-template-columns:1fr; }
+    .bar .pct{ text-align:left; }
+    .lang-grid{ grid-template-columns:1fr; }
+    .donut{ --size:78px; }
+    .radar{ max-width:420px; }
+    .profile-bar{ position: static; top:auto; }
+
+    .tabs{
+      position: sticky;
+      top: 0; /* bám sát đỉnh viewport trên mobile */
+      z-index: 100;
+      display:flex; gap:8px; flex-wrap:wrap;
+      padding:10px 0;
+    }
+
+    .content-wrap{ gap: calc(var(--gap) + 2px); }
+
+    .bar{ grid-template-columns:1fr; }
+    .bar .pct{ text-align:left; }
+    .lang-grid{ grid-template-columns:1fr; }
+    .donut{ --size:78px; }
+    .radar{ max-width:420px; }
+</style>
+</head>
+<body>
+  <div class="app">
+    <!-- ROW 1 -->
+    <header class="topbar">
+      <div class="brand-dot"></div>
+      <div class="title">Nguyễn Dương Yến Phi – SAP BW Consultant</div>
+    </header>
+
+    <!-- ROW 2 -->
+    <div class="main">
+      <!-- SIDEBAR -->
+      <aside class="profile-bar">
+        <div class="avatar">
+          <img
+            src="https://res.cloudinary.com/df9to3mya/image/upload/e_brightness:-3/e_contrast:50/e_saturation:2/e_vibrance:-21/ar_1:1,c_auto,g_auto/FeiFeiCV_x6vjwh.jpg"
+            alt="Nguyễn Dương Yến Phi"
+            loading="lazy"
+            onload="this.closest('.avatar').classList.add('has-img')"
+            onerror="this.closest('.avatar').classList.remove('has-img')" />
+          <span class="initials">YP</span>
+        </div>
+
+        <div class="p-name">Nguyễn Dương Yến Phi</div>
+        <div class="p-title">SAP BW Consultant</div>
+
+        <div class="p-section">
+          <div class="h3">Liên hệ</div>
+          <div>Email: <a href="mailto:yenphind@gmail.com">yenphind@gmail.com</a></div>
+          <div>Phone: <a href="tel:+84865366937">086-536-6937</a></div>
+          <div>Facebook: <a href="https://fb.com/phinguyen.snow3107" target="_blank">fb.com/phinguyen.snow3107</a></div>
+        </div>
+
+        <div class="p-section">
+          <div class="h3">Học vấn</div>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-time">09/2020 – 11/2020</div>
+              <div class="tl-title">ĐH Kinh tế TP.HCM – ERP & Tài chính</div>
+              <div>Đồ án Phân tích thiết kế hệ thống thư viện</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-section">
+          <div class="h3">Tóm tắt công việc</div>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-time">03/2022 – nay</div>
+              <div class="tl-title">FPT IS</div>
+              <div>Tư vấn triển khai ERP, SAP Analytics Cloud</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">2021 – 2022</div>
+              <div class="tl-title">Phát Đạt</div>
+              <div>SAP BPC, xây dựng model, script logic</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">—</div>
+              <div class="tl-title">Coteccons & An Gia</div>
+              <div>Hỗ trợ nhập liệu MM, SD</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-section">
+          <div class="h3">Kỹ năng nhanh</div>
+          <div class="badges">
+            <div class="badge">SAP BW</div><div class="badge">SAC</div><div class="badge">BPC</div>
+            <div class="badge">MM/SD</div><div class="badge">SQL</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CONTENT -->
+      <main class="content">
+        <div class="content-wrap">
+          <nav class="tabs">
+            <button class="tab active" data-tab="about">Giới thiệu</button>
+            <button class="tab" data-tab="exp">Kinh nghiệm</button>
+            <button class="tab" data-tab="skills">Kỹ năng</button>
+          </nav>
+
+          <!-- About -->
+          <section id="about" class="tab-content">
+            <div class="card">
+              <div class="ribbon"><div class="r-dot"></div><div class="h1">Giới thiệu bản thân</div></div>
+              <p>Tôi là <strong>Nguyễn Dương Yến Phi</strong>, tốt nghiệp ngành ERP tại Đại học Kinh tế TP.HCM. Với hơn 3 năm kinh nghiệm triển khai và tư vấn hệ thống ERP trong nhiều lĩnh vực, tôi tự tin với khả năng <strong>phân tích yêu cầu nghiệp vụ</strong>, <strong>thiết kế giải pháp tối ưu</strong>, và <strong>đào tạo – hỗ trợ người dùng</strong> trong quá trình chuyển đổi số.</p>
+            </div>
+
+            <div class="panel">
+              <div class="h2">Năng lực nổi bật</div>
+              <ul>
+                <li><strong>ERP & quản trị:</strong> BPC, BW, SAC, MM, SD; hiểu tích hợp đa nền tảng (SAP, Odoo, Dynamics).</li>
+                <li><strong>Phân tích & giải pháp:</strong> Blueprint, mô hình dữ liệu & BI, logic xử lý, tự động hóa quy trình.</li>
+                <li><strong>Kỹ năng mềm:</strong> teamwork HORENSO, quản lý thời gian, thuyết trình – truyền đạt rõ ràng.</li>
+                <li><strong>Công nghệ:</strong> SQL, UML, C#, Python cho phân tích dữ liệu và automation.</li>
+              </ul>
+            </div>
+
+            <div class="panel">
+              <div class="h2">Định hướng phát triển</div>
+              <p>Hướng tới <span class="highlight">chuyên gia tư vấn ERP toàn diện</span> và <span class="highlight">lead dự án</span> triển khai quy mô lớn trong 3–5 năm tới, đồng thời mở rộng kỹ năng <strong>quản lý dự án</strong>, <strong>phân tích dữ liệu</strong> và <strong>chiến lược kinh doanh</strong>.</p>
+            </div>
+          </section>
+
+          <!-- Experience -->
+          <section id="exp" class="tab-content hidden">
+            <div class="card"><div class="ribbon"><div class="r-dot"></div><div class="h1">Kinh nghiệm chi tiết</div></div></div>
+
+            <div class="panel">
+              <div class="h2">Công ty TNHH FPT IS (03/2022 – 05/2025) – Tư vấn triển khai SAP</div>
+              <ul>
+                <li><strong>MM/SD:</strong> hỗ trợ nhập liệu, kiểm soát quy trình mua hàng & bán hàng.</li>
+                <li><strong>BPC:</strong> khảo sát nghiệp vụ, thiết kế giải pháp, cấu hình theo Blueprint; viết script logic, quản lý dữ liệu.</li>
+                <li><strong>Triển khai & kiểm thử:</strong> phát triển báo cáo, xây dựng mô hình dữ liệu, đảm bảo hệ thống vận hành chính xác & hiệu quả.</li>
+                <li><strong>Hỗ trợ người dùng:</strong> soạn test case, hướng dẫn sử dụng, đào tạo người dùng cuối.</li>
+                <li><strong>Tích hợp:</strong> BPC với DMS (quản lý tài liệu), BPC với RE (quản lý BĐS).</li>
+                <li><strong>BW-BOBJ:</strong> tìm hiểu, thực hành xây dựng báo cáo BI.</li>
+              </ul>
+            </div>
+
+            <div class="panel">
+              <div class="h2">Công ty Cổ phần Công nghệ CITEK (09/2021 – 11/2021) – Thực tập sinh SAP</div>
+              <ul>
+                <li>Hỗ trợ đội dự án trong quá trình tư vấn & triển khai hệ thống SAP.</li>
+                <li>Làm quen quy trình triển khai thực tế và các công cụ SAP cơ bản.</li>
+              </ul>
+            </div>
+
+            <div class="panel">
+              <div class="h2">Đại học Kinh tế TP.HCM (2018 – 2022) – Chuyên ngành ERP</div>
+              <ul>
+                <li>Nghiên cứu hệ thống thông tin doanh nghiệp; quy trình tích hợp ERP: bán hàng, mua hàng, tồn kho, sản xuất, kế toán – tài chính, nhân sự.</li>
+                <li><strong>Quản lý quy trình doanh nghiệp:</strong> xây dựng & phân tích lưu đồ.</li>
+                <li><strong>CSDL quản lý:</strong> thiết kế, tối ưu, truy vấn SQL.</li>
+                <li><strong>Hệ thống ERP:</strong> Microsoft Dynamics AX & ERP nội địa.</li>
+                <li><strong>PT & TK hệ thống:</strong> mô hình UML, cấu trúc dữ liệu.</li>
+                <li><strong>Lập trình ERP:</strong> C# (ứng dụng quản lý), Python (phân tích dữ liệu, tự động hóa).</li>
+                <li><strong>Kỹ năng hỗ trợ:</strong> phân tích nghiệp vụ, QL dự án CNTT, kiểm soát chi phí, vận hành ERP.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Skills -->
+          <section id="skills" class="tab-content hidden">
+            <div class="card">
+              <div class="ribbon"><div class="r-dot"></div><div class="h1">Kỹ năng</div></div>
+
+              <div class="cards-grid">
+                <!-- LEFT: Radar chuyên ngành -->
+                <div class="chart-card">
+                  <div class="chart-title">Kỹ năng chuyên ngành</div>
+                  <div id="radar-core" class="radar"></div>
+                  <div class="legend" style="display:flex;gap:10px;justify-content:center;margin-top:6px;">
+                    <span style="font-weight:700;padding:2px 8px;border-radius:999px;border:1px solid var(--line);background:#e9f2fa;color:var(--sea-1);">BW</span>
+                    <span style="font-weight:700;padding:2px 8px;border-radius:999px;border:1px solid var(--line);background:#e6fbff;color:#0b5563;">BPC</span>
+                    <span style="font-weight:700;padding:2px 8px;border-radius:999px;border:1px solid var(--line);background:#fff6e6;color:#7a5200;">SAC</span>
+                  </div>
+                </div>
+
+                <!-- RIGHT: 3 khối còn lại xếp dọc -->
+                <div class="col-right">
+                  <!-- 4 kỹ năng mềm -->
+                  <div class="panel">
+                    <div class="h2">Những kỹ năng khác</div>
+                    <div class="quad-grid">
+                      <div class="d-card"><div class="donut" style="--v:82"><span>82%</span></div><div class="d-title">Làm việc nhóm</div></div>
+                      <div class="d-card"><div class="donut" style="--v:70"><span>70%</span></div><div class="d-title">Quản lý thời gian</div></div>
+                      <div class="d-card"><div class="donut" style="--v:76"><span>76%</span></div><div class="d-title">Tìm/đọc hiểu</div></div>
+                      <div class="d-card"><div class="donut" style="--v:74"><span>74%</span></div><div class="d-title">Thuyết trình</div></div>
+                    </div>
+                  </div>
+
+                  <!-- Ngoại ngữ -->
+                  <div class="panel">
+                    <div class="h2">Ngoại ngữ</div>
+                    <div class="lang-grid">
+                      <div class="d-card"><div class="donut" style="--v:68"><span>68%</span></div><div class="d-title">Tiếng Trung</div></div>
+                      <div class="d-card"><div class="donut sand" style="--v:72"><span>72%</span></div><div class="d-title">Tiếng Anh</div></div>
+                    </div>
+                  </div>
+
+                  <!-- Kỹ năng máy tính (1 cột) -->
+                  <div class="panel">
+                    <div class="h2">Kỹ năng máy tính</div>
+                    <div class="bars">
+                      <div class="bar"><span>Excel / G.Sheets</span><div class="bar-track"><div class="bar-fill" style="--p:88%"></div></div><em class="pct">88%</em></div>
+                      <div class="bar"><span>PowerPoint / Thuyết trình</span><div class="bar-track"><div class="bar-fill" style="--p:84%"></div></div><em class="pct">84%</em></div>
+                      <div class="bar"><span>SQL cơ bản</span><div class="bar-track"><div class="bar-fill" style="--p:72%"></div></div><em class="pct">72%</em></div>
+                      <div class="bar"><span>Python (phân tích/automation)</span><div class="bar-track"><div class="bar-fill" style="--p:68%"></div></div><em class="pct">68%</em></div>
+                      <div class="bar"><span>UML / Draw.io</span><div class="bar-track"><div class="bar-fill" style="--p:75%"></div></div><em class="pct">75%</em></div>
+                      <div class="bar"><span>Git / GitHub</span><div class="bar-track"><div class="bar-fill" style="--p:60%"></div></div><em class="pct">60%</em></div>
+                      <div class="bar"><span>Figma / UI cơ bản</span><div class="bar-track"><div class="bar-fill" style="--p:58%"></div></div><em class="pct">58%</em></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Tabs
+    document.querySelectorAll(".tab").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");
+        const id = btn.dataset.tab;
+        document.querySelectorAll(".tab-content").forEach(s=>s.classList.add("hidden"));
+        document.getElementById(id).classList.remove("hidden");
+        // Auto-scroll to tabs on mobile for better context
+        if (window.matchMedia('(max-width:860px)').matches) {
+          document.querySelector('.tabs').scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // Radar (core)
+    (function(){
+      const theme={ grid:'#E6F1F7', ring:'rgba(79,143,192,.12)', fill:'rgba(83,210,220,.35)', stroke:'#53D2DC', label:'#26648E' };
+      const labels=['BW','BPC','SAC'], values=[78,83,88];
+      const n=labels.length, size=360, cx=size/2, cy=size/2, r=size*0.36, NS='http://www.w3.org/2000/svg';
+      const svg=document.createElementNS(NS,'svg'); svg.setAttribute('viewBox',`0 0 ${size} ${size}`);
+      for(let i=1;i<=4;i++){ const cr=r*i/4, c=document.createElementNS(NS,'circle'); c.setAttribute('cx',cx); c.setAttribute('cy',cy); c.setAttribute('r',cr);
+        c.setAttribute('fill', i===4?'none':theme.ring); c.setAttribute('stroke',theme.grid); c.setAttribute('stroke-width','1'); svg.appendChild(c); }
+      labels.forEach((lb,i)=>{ const ang=-Math.PI/2+i*2*Math.PI/n, x=cx+r*Math.cos(ang), y=cy+r*Math.sin(ang);
+        const ax=document.createElementNS(NS,'line'); ax.setAttribute('x1',cx); ax.setAttribute('y1',cy); ax.setAttribute('x2',x); ax.setAttribute('y2',y);
+        ax.setAttribute('stroke',theme.grid); ax.setAttribute('stroke-width','1'); svg.appendChild(ax);
+        const tx=document.createElementNS(NS,'text'); tx.setAttribute('x',x); tx.setAttribute('y',y); tx.setAttribute('fill',theme.label); tx.setAttribute('font-size','12');
+        tx.setAttribute('text-anchor', x<cx-5?'end':(x>cx+5?'start':'middle')); tx.setAttribute('dy', y>cy+5?'1em':(y<cy-5?'-0.4em':'.35em')); tx.textContent=lb; svg.appendChild(tx); });
+      const pts=values.map((v,i)=>{ const ang=-Math.PI/2+i*2*Math.PI/n, rr=r*(v/100); return `${cx+rr*Math.cos(ang)},${cy+rr*Math.sin(ang)}`; }).join(' ');
+      const poly=document.createElementNS(NS,'polygon'); poly.setAttribute('points',pts); poly.setAttribute('fill',theme.fill); poly.setAttribute('stroke',theme.stroke); poly.setAttribute('stroke-width','2'); svg.appendChild(poly);
+      document.getElementById('radar-core').appendChild(svg);
+    })();
+  </script>
+</body>
+</html>
