@@ -27,11 +27,22 @@
   /* ===== APP LAYOUT ===== */
   .app{ display:grid; grid-template-rows:64px 1fr; min-height:100vh; }
   .topbar{
-    display:flex; align-items:center; padding:0 24px; color:#fff; font-weight:700; letter-spacing:.2px;
+    display:flex; align-items:center; justify-content:space-between; padding:0 24px; color:#fff; font-weight:700; letter-spacing:.2px;
     background:linear-gradient(90deg,var(--sea-1),var(--sea-2));
   }
-  .brand-dot{ width:12px;height:12px;border-radius:50%;background:var(--sea-3);margin-right:12px;box-shadow:0 0 0 3px rgba(255,255,255,.18); }
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-dot{ width:12px;height:12px;border-radius:50%;background:var(--sea-3);box-shadow:0 0 0 3px rgba(255,255,255,.18); }
   .title{ font-size:clamp(18px,2.6vw,22px); }
+
+  /* Toggle button */
+  .view-toggle{
+    appearance:none; border:none; cursor:pointer; font-weight:800;
+    padding:8px 14px; border-radius:999px; color:#0b3b55; background:#fff; 
+    box-shadow:0 4px 14px rgba(0,0,0,.12), inset 0 0 0 2px rgba(255,255,255,.4);
+    transition:transform .06s ease;
+  }
+  .view-toggle:active{ transform:translateY(1px); }
+  .view-toggle .mode{font-weight:800}
 
   /* ===== GRID WITH AREAS (PC default) ===== */
   .main{
@@ -69,6 +80,7 @@
 
   /* ===== CONTENT ===== */
   .content-wrap{ display:flex; flex-direction:column; gap:var(--gap); }
+  .tabs{ display:flex; gap:8px; flex-wrap:wrap; }
   .tab{
     border:1px solid var(--line);
     background:#fff;
@@ -80,11 +92,11 @@
     transition:all .25s ease;
     box-shadow:0 2px 6px rgba(38,100,142,.06);
    }
-    .tab.active{
+  .tab.active{
     background:linear-gradient(90deg,var(--sand),#fff);
     border-color:var(--sea-3);
     box-shadow:0 0 0 2px rgba(83,210,220,.20) inset, 0 6px 12px rgba(38,100,142,.12);
-   }
+  }
 
   .card,.panel{ background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 20px rgba(79,143,192,.08); }
   .card .h1{ font-size:22px;font-weight:800;margin-bottom:6px;color:var(--sea-1); }
@@ -138,11 +150,37 @@
   .bar-track{ height:12px; background:#eef7fa; border-radius:999px; overflow:hidden; }
   .bar-fill{ height:100%; width:var(--p); background:linear-gradient(90deg,var(--sea-2),var(--sea-3)); }
 
+  /* ===== ONE-PAGE MODE (2nd column merges tabs) ===== */
+  body.onepage .tabs{ display:none; }         /* ẩn thanh tabs */
+  body.onepage #all{ display:block; }         /* hiển thị trang gộp */
+  #all.hidden{ display:none; }
+
+  /* Accordion styles */
+  .acc{ display:grid; gap:12px; }
+  .acc details{
+    border:1px solid var(--line); border-radius:12px; background:#fff; overflow:hidden;
+    box-shadow:0 6px 16px rgba(79,143,192,.08);
+  }
+  .acc summary{
+    list-style:none; cursor:pointer; user-select:none;
+    padding:14px 16px; font-weight:800; color:var(--sea-1);
+    background:linear-gradient(90deg, rgba(38,100,142,.06), rgba(83,210,220,.10));
+    position:relative;
+  }
+  .acc summary::-webkit-details-marker{ display:none; }
+  .acc summary:after{
+    content:"▾"; position:absolute; right:14px; top:50%; transform:translateY(-50%) rotate(0deg);
+    transition:transform .2s ease;
+  }
+  .acc details[open] summary:after{ transform:translateY(-50%) rotate(180deg); }
+  .acc .acc-body{ padding:14px; }
+  .acc details.no-summary > summary{ display:none; }
+  .acc details.no-summary .acc-body{ padding-top:0; }
   /* ===== RESPONSIVE ===== */
   @media (max-width:1200px){ .cards-grid{ grid-template-columns:520px 1fr; } }
   @media (max-width:1024px){ .cards-grid{ grid-template-columns:1fr; } .donut{ --size:82px; } }
 
-  /* MOBILE: Sidebar trên, Tabs sticky; PC: tabs bình thường */
+  /* MOBILE: Sidebar trên, Tabs sticky */
   @media (max-width:860px){
     .main{
       grid-template-columns:1fr;
@@ -151,59 +189,42 @@
         "content";
     }
     .profile-bar{ position: static; top:auto; }
-
-    /* Tabs sticky ngay dưới topbar, không bị lệch giữa màn hình */
     .tabs{
-      position: sticky;
-      top: 64px;         
-      z-index: 80;
-      padding:10px 12px;
-      margin-top: 0;      
-      left: 0; right: 0;  
+      position: sticky; top: 64px; z-index: 80; padding:10px 12px; margin-top: 0; left: 0; right: 0;
     }
-
     .content-wrap{ gap: calc(var(--gap) + 2px); }
-
     .bar{ grid-template-columns:1fr; }
     .bar .pct{ text-align:left; }
     .lang-grid{ grid-template-columns:1fr; }
     .donut{ --size:78px; }
     .radar{ max-width:420px; }
   }
-    .tab.active{ background:linear-gradient(90deg,var(--sand),#fff); border-color:var(--sea-3); box-shadow:0 0 0 2px rgba(83,210,220,.20) inset, 0 8px 16px rgba(38,100,142,.12); }
 
-    .content-wrap{ gap: calc(var(--gap) + 2px); }
+  /* ===== PRINT ===== */
+  @media print{
+    .view-toggle{ display:none !important; } /* ẩn nút khi in */
+    .tabs{ display:none !important; }
+    /* Bạn có thể cưỡng bức chế độ onepage khi in nếu muốn:
+       body:not(.onepage) #about, body:not(.onepage) #exp, body:not(.onepage) #skills { display:block !important; }
+    */
+    .profile-bar{ position:static; box-shadow:none }
+    .card, .panel, .profile-bar{ box-shadow:none }
+  }
 
-    .bar{ grid-template-columns:1fr; }
-    .bar .pct{ text-align:left; }
-    .lang-grid{ grid-template-columns:1fr; }
-    .donut{ --size:78px; }
-    .radar{ max-width:420px; }
-    .profile-bar{ position: static; top:auto; }
-
-    .tabs{
-      position: sticky;
-      top: 0; /* bám sát đỉnh viewport trên mobile */
-      z-index: 100;
-      display:flex; gap:8px; flex-wrap:wrap;
-      padding:10px 0;
-    }
-
-    .content-wrap{ gap: calc(var(--gap) + 2px); }
-
-    .bar{ grid-template-columns:1fr; }
-    .bar .pct{ text-align:left; }
-    .lang-grid{ grid-template-columns:1fr; }
-    .donut{ --size:78px; }
-    .radar{ max-width:420px; }
 </style>
 </head>
 <body>
   <div class="app">
     <!-- ROW 1 -->
     <header class="topbar">
-      <div class="brand-dot"></div>
-      <div class="title">Nguyễn Dương Yến Phi – ERP Consultant</div>
+      <div class="brand">
+        <div class="brand-dot"></div>
+        <div class="title">Nguyễn Dương Yến Phi – ERP Consultant</div>
+      </div>
+      <!-- Nút chuyển chế độ -->
+      <button class="view-toggle" id="viewToggle" aria-pressed="false" title="Chuyển chế độ xem">
+        <span class="mode">Chế độ: Tabs</span>
+      </button>
     </header>
 
     <!-- ROW 2 -->
@@ -394,13 +415,15 @@
                       <div class="bar"><span>SQL cơ bản</span><div class="bar-track"><div class="bar-fill" style="--p:50%"></div></div><em class="pct">50%</em></div>
                       <div class="bar"><span>Python (phân tích/automation)</span><div class="bar-track"><div class="bar-fill" style="--p:50%"></div></div><em class="pct">50%</em></div>
                       <div class="bar"><span>UML/Visio </span><div class="bar-track"><div class="bar-fill" style="--p:90%"></div></div><em class="pct">90%</em></div>
-                      <!--<div class="bar"><span>Figma / UI cơ bản</span><div class="bar-track"><div class="bar-fill" style="--p:50%"></div></div><em class="pct">50%</em></div> -->
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </section>
+
+          <!-- One-page merged content (built dynamically) -->
+          <section id="all" class="tab-content hidden"></section>
         </div>
       </main>
     </div>
@@ -422,7 +445,7 @@
       });
     });
 
-    // Radar (core)
+    // Build radar (core)
     (function(){
       const theme={ grid:'#E6F1F7', ring:'rgba(79,143,192,.12)', fill:'rgba(83,210,220,.35)', stroke:'#53D2DC', label:'#26648E' };
       const labels=['BW','BPC','SAC'], values=[78,83,88];
@@ -437,16 +460,85 @@
         tx.setAttribute('text-anchor', x<cx-5?'end':(x>cx+5?'start':'middle')); tx.setAttribute('dy', y>cy+5?'1em':(y<cy-5?'-0.4em':'.35em')); tx.textContent=lb; svg.appendChild(tx); });
       const pts=values.map((v,i)=>{ const ang=-Math.PI/2+i*2*Math.PI/n, rr=r*(v/100); return `${cx+rr*Math.cos(ang)},${cy+rr*Math.sin(ang)}`; }).join(' ');
       const poly=document.createElementNS(NS,'polygon'); poly.setAttribute('points',pts); poly.setAttribute('fill',theme.fill); poly.setAttribute('stroke',theme.stroke); poly.setAttribute('stroke-width','2'); svg.appendChild(poly);
-      document.getElementById('radar-core').appendChild(svg);
+      const radarEl = document.getElementById('radar-core');
+      if (radarEl) radarEl.appendChild(svg);
     })();
+
+    /* ===== ONE-PAGE TOGGLE LOGIC ===== */
+    const sections = [
+      { id:'about',  title:'Giới thiệu'   },
+      { id:'exp',    title:'Kinh nghiệm'  },
+      { id:'skills', title:'Kỹ năng'      },
+    ];
+
+    function buildOnePage(){
+        const container = document.getElementById('all');
+        container.innerHTML = '';
+        const wrap = document.createElement('div');
+        wrap.className = 'acc';
+
+        sections.forEach(s=>{
+            const src = document.getElementById(s.id);
+            if(!src) return;
+            const details = document.createElement('details');
+            details.open = true;
+
+            // Tạo summary
+            const sum = document.createElement('summary');
+            sum.textContent = s.title;
+            details.appendChild(sum);
+
+            // Nếu là 'about' thì ẩn summary
+            if (s.id === 'about') details.classList.add('no-summary');
+
+            const body = document.createElement('div');
+            body.className = 'acc-body';
+            Array.from(src.children).forEach(child=>{
+            body.appendChild(child.cloneNode(true));
+            });
+
+            details.appendChild(body);
+            wrap.appendChild(details);
+        });
+
+        container.appendChild(wrap);
+    }
+
+    const toggleBtn = document.getElementById('viewToggle');
+    function setMode(onepage){
+      const body = document.body;
+      const label = toggleBtn.querySelector('.mode');
+      document.querySelectorAll('.tab-content').forEach(s=>s.classList.add('hidden'));
+
+      if(onepage){
+        body.classList.add('onepage');
+        buildOnePage();
+        document.getElementById('all').classList.remove('hidden');
+        toggleBtn.setAttribute('aria-pressed','true');
+        label.textContent = 'Chế độ: 1 trang';
+      }else{
+        body.classList.remove('onepage');
+        // trở về tab đang active
+        const active = document.querySelector('.tab.active')?.dataset?.tab || 'about';
+        document.getElementById(active).classList.remove('hidden');
+        toggleBtn.setAttribute('aria-pressed','false');
+        label.textContent = 'Chế độ: Tabs';
+      }
+    }
+
+    toggleBtn.addEventListener('click', ()=>{
+      const isOnePage = !document.body.classList.contains('onepage');
+      setMode(isOnePage);
+    });
+
+    // Nếu muốn auto chuyển sang onepage khi người dùng bấm Ctrl+P (mở hộp thoại in),
+    // bật đoạn dưới (không bắt buộc):
+    // window.matchMedia('print').addEventListener('change', e=>{
+    //   if(e.matches) setMode(true);
+    // });
+
+    // Khởi tạo: giữ chế độ Tabs
+    setMode(false);
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
