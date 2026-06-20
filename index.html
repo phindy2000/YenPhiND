@@ -2,97 +2,82 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Nguyễn Dương Yến Phi - CV Online" />
-  <title>Nguyễn Dương Yến Phi | CV Online</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Nguyễn Dương Yến Phi - Business System, ERP, Data & Dashboard CV" />
+  <title>Nguyễn Dương Yến Phi | Business System Dashboard CV</title>
   <style>
     :root{
-      --bg:#f4f8fb;
+      --bg:#eef5f8;
       --card:#ffffff;
-      --ink:#122033;
-      --text:#334155;
-      --muted:#64748b;
-      --line:#dfe8ef;
-      --blue:#245c8a;
-      --blue2:#438fc5;
-      --cyan:#42c6d6;
-      --sand:#ffd98a;
-      --green:#65c99b;
-      --orange:#ffb36b;
-      --soft:#f8fcfe;
-      --shadow:0 14px 34px rgba(18,32,51,.09);
-      --radius:22px;
-      --max:1220px;
+      --ink:#0f2537;
+      --text:#33485c;
+      --muted:#6b7d8d;
+      --line:#dce8ef;
+      --blue:#1f5f8b;
+      --blue2:#2b82b8;
+      --cyan:#31c0d4;
+      --mint:#79d7bc;
+      --amber:#ffd283;
+      --soft:#f7fbfd;
+      --soft2:#edf8fb;
+      --shadow:0 18px 42px rgba(15,37,55,.10);
+      --radius:24px;
+      --max:1180px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-
     body{
       margin:0;
       color:var(--ink);
-      font:500 15px/1.48 "Roboto", Arial, sans-serif;
+      font:500 15px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       background:
-        radial-gradient(900px 520px at -8% -12%, rgba(66,198,214,.23), transparent 62%),
-        radial-gradient(800px 500px at 108% -12%, rgba(255,217,138,.40), transparent 60%),
-        linear-gradient(180deg,#fbfdff 0%,var(--bg) 100%);
+        radial-gradient(880px 500px at -10% -14%, rgba(49,192,212,.22), transparent 62%),
+        radial-gradient(720px 460px at 112% -10%, rgba(255,210,131,.35), transparent 60%),
+        linear-gradient(180deg,#fbfdff 0%, var(--bg) 100%);
     }
 
     a{color:inherit;text-decoration:none}
-    button{font-family:"Roboto", Arial, sans-serif}
-
+    button{font:inherit}
     .wrap{width:min(var(--max), calc(100% - 32px));margin:0 auto}
 
     .top{
       position:sticky;
       top:0;
-      z-index:30;
-      backdrop-filter:blur(14px);
-      background:rgba(251,253,255,.86);
-      border-bottom:1px solid rgba(223,232,239,.92);
+      z-index:50;
+      border-bottom:1px solid rgba(220,232,239,.9);
+      background:rgba(249,253,255,.86);
+      backdrop-filter:blur(16px);
     }
-
     .top-inner{
-      height:68px;
+      min-height:68px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:14px;
+      gap:16px;
     }
-
     .brand{display:flex;align-items:center;gap:12px;min-width:0}
     .mark{
-      width:42px;height:42px;border-radius:16px;
+      width:44px;height:44px;border-radius:16px;
       display:grid;place-items:center;
       color:#fff;font-weight:900;letter-spacing:.4px;
       background:linear-gradient(135deg,var(--blue),var(--cyan));
-      box-shadow:0 12px 24px rgba(36,92,138,.22);
+      box-shadow:0 12px 28px rgba(31,95,139,.24);
       flex:0 0 auto;
     }
-
-    .brand-text{min-width:0;display:grid;line-height:1.16}
-    .brand-text strong{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:900}
-    .brand-text span{color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500}
-
+    .brand-title{display:grid;line-height:1.18;min-width:0}
+    .brand-title strong{font-size:15px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .brand-title span{font-size:12px;color:var(--muted);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .nav{display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap}
-    .nav a,.pdf{
-      border:0;cursor:pointer;border-radius:999px;padding:9px 12px;
-      background:transparent;color:#20344c;font-weight:900;font-size:13px;
+    .nav a,.print-btn{
+      border:0;cursor:pointer;border-radius:999px;padding:9px 11px;
+      color:#24445d;background:transparent;font-size:12px;font-weight:900;
     }
-    .nav a:hover{background:#eaf5fb}
-    .pdf{
-      color:#fff;background:linear-gradient(135deg,var(--blue),var(--blue2));
-      box-shadow:0 10px 22px rgba(36,92,138,.20);
-    }
+    .nav a:hover{background:#eaf5f8}
+    .print-btn{color:#fff;background:linear-gradient(135deg,var(--blue),var(--blue2));box-shadow:0 10px 22px rgba(31,95,139,.2)}
 
-    section{padding:16px 0}
-    .hero{padding:34px 0 16px}
-
+    section{padding:18px 0}
+    .hero{padding:34px 0 14px}
     .panel{
       border:1px solid var(--line);
       border-radius:var(--radius);
@@ -100,869 +85,446 @@
       box-shadow:var(--shadow);
     }
 
-    .hero-card{
-      padding:28px;
+    .hero-grid{
       position:relative;
       overflow:hidden;
       display:grid;
-      grid-template-columns:minmax(0, 1fr) 360px;
-      gap:24px;
-      align-items:stretch;
-      min-height:330px;
+      grid-template-columns:minmax(0,1fr) 330px;
+      gap:22px;
+      padding:30px;
+      min-height:390px;
     }
-
-    .hero-card:after{
+    .hero-grid:after{
       content:"";
-      position:absolute;
-      right:-150px;top:-150px;
-      width:420px;height:420px;border-radius:50%;
-      background:radial-gradient(circle, rgba(66,198,214,.25), rgba(66,198,214,.07) 58%, transparent 70%);
+      position:absolute;right:-150px;top:-160px;width:460px;height:460px;border-radius:50%;
+      background:radial-gradient(circle, rgba(49,192,212,.28), rgba(49,192,212,.08) 58%, transparent 72%);
       pointer-events:none;
     }
-
-    .hero-main,.hero-side{position:relative;z-index:1}
-
-    .hero-main{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      min-width:0;
-      max-width:690px;
-    }
-
-    .badge{
+    .hero-main,.profile-card{position:relative;z-index:1}
+    .hero-main{display:flex;flex-direction:column;justify-content:center;max-width:720px}
+    .eyebrow{
       width:max-content;max-width:100%;
-      display:inline-flex;align-items:center;gap:8px;
-      border-radius:999px;padding:7px 12px;
-      background:#edf8fc;border:1px solid #d5edf5;color:var(--blue);
-      font-weight:900;font-size:12px;letter-spacing:.35px;text-transform:uppercase;
+      display:inline-flex;align-items:center;gap:9px;
+      padding:7px 12px;border:1px solid #caeaf1;border-radius:999px;
+      background:#eef9fb;color:var(--blue);font-size:12px;font-weight:900;letter-spacing:.42px;text-transform:uppercase;
     }
+    .eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px rgba(49,192,212,.18)}
+    h1{margin:16px 0 0;font-size:clamp(38px,5.1vw,61px);line-height:1;letter-spacing:-1.9px;font-weight:950}
+    .headline{margin:14px 0 0;font-size:clamp(22px,2.7vw,32px);line-height:1.15;letter-spacing:-.7px;color:var(--blue);font-weight:950;max-width:760px}
+    .intro{margin:16px 0 0;color:var(--text);font-size:17px;line-height:1.55;font-weight:720;max-width:700px}
+    .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;max-width:700px}
+    .tag{display:inline-flex;align-items:center;gap:6px;padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#2b465d;font-size:12px;font-weight:900;box-shadow:0 8px 16px rgba(15,37,55,.045)}
+    .tag.hot{background:linear-gradient(135deg,#eaf8fb,#fff7e7);border-color:#cbeef4;color:var(--blue)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .btn{border:1px solid var(--line);border-radius:999px;padding:11px 15px;background:#fff;color:var(--ink);font-weight:900;box-shadow:0 8px 18px rgba(15,37,55,.065);cursor:pointer}
+    .btn.primary{border-color:transparent;color:#fff;background:linear-gradient(135deg,var(--blue),var(--blue2))}
 
-    .badge:before{
-      content:"";width:8px;height:8px;border-radius:50%;
-      background:var(--cyan);box-shadow:0 0 0 4px rgba(66,198,214,.18);
-      flex:0 0 auto;
-    }
-
-    h1{
-      margin:16px 0 0;
-      font-size:clamp(36px,5vw,56px);
-      line-height:1.02;
-      letter-spacing:-1.6px;
-      font-weight:900;
-      max-width:620px;
-    }
-
-    .role{
-      margin:14px 0 0;
-      font-size:clamp(20px,2.5vw,27px);
-      line-height:1.22;
-      color:var(--blue);
-      font-weight:900;
-      letter-spacing:-.5px;
-      max-width:670px;
-    }
-
-    .one-line{
-      margin:14px 0 0;
-      max-width:660px;
-      color:var(--text);
-      font-size:17px;
-      line-height:1.5;
-      font-weight:700;
-    }
-
-    .summary-pills{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:18px;
-      max-width:660px;
-    }
-    .pill{
-      padding:8px 11px;border-radius:999px;
-      background:#fff;border:1px solid var(--line);
-      color:#284158;font-size:13px;font-weight:900;
-      box-shadow:0 8px 16px rgba(18,32,51,.04);
-    }
-
-    .cta-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:22px;
-    }
-    .btn{
-      border:1px solid var(--line);border-radius:999px;
-      padding:11px 15px;background:#fff;color:var(--ink);
-      font-weight:900;box-shadow:0 8px 18px rgba(18,32,51,.07);cursor:pointer;
-    }
-    .btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff}
-
-    .hero-side{
+    .profile-card{
       align-self:stretch;
-      display:grid;
-      grid-template-columns:1fr;
-      grid-template-rows:auto 1fr;
-      gap:16px;
-      align-items:start;
-      justify-items:center;
+      border:1px solid rgba(220,232,239,.92);
+      border-radius:22px;
+      background:rgba(255,255,255,.78);
+      box-shadow:0 12px 28px rgba(15,37,55,.06);
       padding:22px;
-      border-radius:20px;
-      background:rgba(255,255,255,.76);
-      border:1px solid rgba(223,232,239,.92);
-      box-shadow:0 12px 28px rgba(18,32,51,.055);
-    }
-
-    .avatar{
-      width:112px;
-      height:112px;
-      border-radius:50%;
-      background:linear-gradient(135deg,var(--blue),var(--cyan));
-      box-shadow:0 14px 34px rgba(36,92,138,.22);
-      border:6px solid #fff;
-      overflow:hidden;
       display:grid;
-      place-items:center;
-      color:#fff;
-      font-size:28px;
-      font-weight:900;
+      align-content:center;
+      justify-items:center;
+      gap:16px;
+    }
+    .avatar{
+      width:118px;height:118px;border-radius:50%;overflow:hidden;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      color:#fff;font-size:28px;font-weight:950;border:6px solid #fff;
+      box-shadow:0 14px 34px rgba(31,95,139,.23);
     }
     .avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-
-    .contact{
-      width:100%;
-      display:grid;
-      gap:10px;
-      align-self:center;
-    }
-
-    .contact-row{
-      display:grid;
-      grid-template-columns:86px 1fr;
-      gap:10px;
-      color:var(--text);
-      align-items:start;
-      font-size:14px;
-      line-height:1.35;
-    }
-
-    .contact-row b{
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.7px;
-      font-size:11px;
-      font-weight:900;
-      padding-top:2px;
-    }
-
-    .section-head{
-      display:flex;
-      align-items:end;
-      justify-content:flex-start;
-      gap:18px;
-      margin:4px 0 12px;
-    }
-
-    h2{margin:0;font-size:27px;letter-spacing:-.8px;line-height:1.14;font-weight:900}
-    h3{margin:0;font-weight:900}
-
-    .fit-strip{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
-    }
-
-    .fit-card{
-      padding:18px;
-      min-height:128px;
-      position:relative;
-      overflow:hidden;
-    }
-    .fit-card:after{
-      content:"";position:absolute;right:-24px;bottom:-26px;
-      width:88px;height:88px;border-radius:50%;
-      background:rgba(66,198,214,.16);
-    }
-    .fit-card .label{
-      color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.7px;font-weight:900;
-    }
-    .fit-card .title{
-      margin-top:7px;color:var(--blue);font-size:18px;line-height:1.15;font-weight:900;letter-spacing:-.25px;
-    }
-    .fit-card .desc{
-      margin-top:8px;color:#475569;font-size:13px;font-weight:500;max-width:320px;
-    }
-
-    .experience-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
-    .main-exp{
-      padding:22px;
-    }
-
-    .exp-header{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:18px;
-      padding-bottom:14px;
-      border-bottom:1px solid var(--line);
-      margin-bottom:14px;
-    }
-
-    .exp-title h3{
-      color:var(--blue);
-      font-size:20px;
-      margin-bottom:6px;
-    }
-
-    .exp-title p{
-      margin:0;
-      color:#475569;
-      font-weight:500;
-    }
-
-    .period-badge{
-      flex:0 0 auto;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid #d5edf5;
-      background:#edf8fc;
-      color:var(--blue);
-      font-size:12px;
-      font-weight:900;
-    }
-
-    .task-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
-
-    .task{
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:13px;
-      background:var(--soft);
-    }
-
-    .task b{
-      display:block;
-      color:#17324d;
-      font-size:14px;
-      margin-bottom:6px;
-    }
-
-    .task span{
-      display:block;
-      color:#526174;
-      font-size:13px;
-      line-height:1.42;
-    }
-
-    .project-list{
-      display:grid;
-      gap:12px;
-    }
-
-    .project-card{
-      padding:16px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:#fff;
-      min-height:132px;
-    }
-
-    .project-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:8px;
-    }
-
-    .project-top h3{
-      color:var(--blue);
-      font-size:16px;
-      line-height:1.2;
-    }
-
-    .tag{
-      flex:0 0 auto;
-      padding:5px 8px;
-      border-radius:999px;
-      background:#fff5df;
-      border:1px solid #f3ddaa;
-      color:#775b17;
-      font-size:11px;
-      font-weight:900;
-    }
-
-    .project-card p{
-      margin:0;
-      color:#475569;
-      font-size:13px;
-      font-weight:500;
-    }
-
-    .timeline{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-    }
-
-    .time-card{
-      padding:16px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:#fff;
-      min-height:150px;
-    }
-
-    .period{
-      color:var(--muted);
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:.3px;
-      text-transform:uppercase;
-    }
-
-    .time-card h3{
-      margin:8px 0;
-      color:var(--blue);
-      font-size:16px;
-    }
-
-    .time-card p{
-      margin:0;
-      color:#475569;
-      font-size:13px;
-      font-weight:500;
-    }
-
-    .chart-layout{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
-    .chart-card{
-      padding:20px;
-      min-height:360px;
-    }
-
-    .card-title{
-      display:flex;
-      align-items:center;
-      justify-content:flex-start;
-      gap:10px;
-      margin-bottom:14px;
-    }
-
-    .card-title h3{
-      color:#14253a;
-      font-size:18px;
-      letter-spacing:-.3px;
-    }
-
-    .natural-bars{
-      display:grid;
-      gap:13px;
-    }
-
-    .natural-row{
-      display:grid;
-      grid-template-columns:190px 1fr 84px;
-      gap:12px;
-      align-items:center;
-    }
-
-    .natural-label{
-      color:#20344c;
-      font-size:13px;
-      font-weight:900;
-    }
-
-    .level-track{
-      height:14px;
-      border-radius:999px;
-      background:#eaf2f7;
-      overflow:hidden;
-      box-shadow:inset 0 1px 2px rgba(18,32,51,.08);
-    }
-
-    .level-fill{
-      width:var(--w);
-      height:100%;
-      border-radius:999px;
-      background:linear-gradient(90deg,var(--blue2),var(--cyan));
-    }
-
-    .level-text{
-      color:var(--blue);
-      font-size:12px;
-      font-weight:900;
-      text-align:right;
-    }
-
-    .matrix{
-      display:grid;
-      gap:10px;
-    }
-
-    .matrix-row{
-      display:grid;
-      grid-template-columns:158px repeat(3,1fr);
-      gap:8px;
-      align-items:stretch;
-    }
-
-    .matrix-head{
-      color:var(--muted);
-      font-size:11px;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.4px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-    }
-
-    .matrix-name{
-      color:#20344c;
-      font-size:13px;
-      font-weight:900;
-      display:flex;
-      align-items:center;
-    }
-
-    .cell{
-      min-height:34px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background:#f3f8fb;
-      display:grid;
-      place-items:center;
-      color:#7a8797;
-      font-size:12px;
-      font-weight:900;
-    }
-
-    .cell.on{
-      background:#eaf8fc;
-      border-color:#ccebf4;
-      color:var(--blue);
-    }
-
-    .cell.strong{
-      background:linear-gradient(135deg,#eaf8fc,#fff5df);
-      border-color:#bfe8f2;
-      color:var(--blue);
-    }
-
-    .path-grid{
-      display:grid;
-      grid-template-columns:repeat(6,1fr);
-      gap:10px;
-    }
-
-    .step{
-      padding:14px 12px;
-      min-height:128px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:#fff;
-      overflow:hidden;
-      position:relative;
-    }
-
-    .step .n{
-      color:rgba(36,92,138,.16);
-      font-size:42px;
-      font-weight:900;
-      line-height:1;
-    }
-
-    .step b{
-      display:block;
-      margin-top:2px;
-      color:var(--blue);
-      font-size:14px;
-      font-weight:900;
-    }
-
-    .step span{
-      display:block;
-      margin-top:6px;
-      color:#64748b;
-      font-size:12px;
-      font-weight:500;
-    }
-
-    .map-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:12px;
-    }
-
-    .map-card{
-      padding:16px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:#fff;
-      min-height:168px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .map-card:before{
-      content:attr(data-type);
-      display:inline-flex;
-      padding:5px 9px;
-      border-radius:999px;
-      background:#edf8fc;
-      color:var(--blue);
-      border:1px solid #d5edf5;
-      font-size:10px;
-      font-weight:900;
-      letter-spacing:.4px;
-      text-transform:uppercase;
-    }
-
-    .map-card h3{
-      margin:12px 0 8px;
-      color:var(--blue);
-      font-size:16px;
-      letter-spacing:-.2px;
-    }
-
-    .map-card p{
-      margin:0;
-      color:#475569;
-      font-size:13px;
-      font-weight:500;
-    }
-
-    .role-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-
-    .role-card{
-      padding:18px;
-      border-radius:20px;
-      border:1px solid var(--line);
-      background:#fff;
-      min-height:190px;
-    }
-
-    .role-card .score{
-      width:max-content;
-      padding:6px 10px;
-      border-radius:999px;
-      background:#edf8fc;
-      border:1px solid #d5edf5;
-      color:var(--blue);
-      font-size:12px;
-      font-weight:900;
-    }
-
-    .role-card h3{
-      margin:12px 0 8px;
-      color:#14253a;
-      font-size:18px;
-      letter-spacing:-.3px;
-    }
-
-    .role-card ul{
-      margin:0;
-      padding-left:18px;
-      color:#475569;
-      font-size:13px;
-      font-weight:500;
-    }
-
-    .role-card li{margin:6px 0}
-
-    .scan-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
-    .keyword-cloud{
-      display:flex;
-      flex-wrap:wrap;
-      gap:9px;
-    }
-
-    .keyword{
-      padding:9px 11px;
-      border-radius:999px;
-      border:1px solid #d9e8f0;
-      background:#fff;
-      color:#24435f;
-      font-size:13px;
-      font-weight:900;
-    }
-
-    .keyword.hot{
-      background:linear-gradient(135deg,#eaf8fc,#fff5df);
-      border-color:#ccecf5;
-      color:var(--blue);
-    }
-
-    .compact-list{display:grid;gap:10px}
-    .compact-item{
-      display:grid;
-      grid-template-columns:30px 1fr;
-      gap:10px;
-      align-items:start;
-      color:#405269;
-      font-size:14px;
-      font-weight:500;
-    }
-
-    .check{
-      width:24px;height:24px;border-radius:50%;
-      display:grid;place-items:center;
-      background:#eaf8fc;
-      color:var(--blue);
-      font-weight:900;
-    }
-
-    footer{
-      padding:32px 0 44px;
-      color:var(--muted);
-      text-align:center;
-      font-size:13px;
-      font-weight:500;
-    }
+    .mini-name{text-align:center}
+    .mini-name b{display:block;font-size:18px;font-weight:950;letter-spacing:-.2px}
+    .mini-name span{display:block;color:var(--muted);font-size:13px;font-weight:700;margin-top:2px}
+    .contact-list{width:100%;display:grid;gap:9px}
+    .contact-row{display:grid;grid-template-columns:92px 1fr;gap:10px;align-items:start;color:var(--text);font-size:13px;line-height:1.34;word-break:break-word}
+    .contact-row b{color:var(--muted);font-size:10px;font-weight:950;text-transform:uppercase;letter-spacing:.7px;padding-top:2px}
+
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:3px 0 13px}
+    h2{margin:0;font-size:28px;line-height:1.12;letter-spacing:-.9px;font-weight:950}
+    .section-note{margin:0;color:var(--muted);font-size:13px;font-weight:700;max-width:540px;text-align:right}
+
+    .snapshot{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .kpi{padding:17px;min-height:138px;position:relative;overflow:hidden}
+    .kpi:after{content:"";position:absolute;right:-26px;bottom:-28px;width:92px;height:92px;border-radius:50%;background:rgba(49,192,212,.13)}
+    .kpi .num{font-size:28px;line-height:1;font-weight:950;color:var(--blue);letter-spacing:-.8px}
+    .kpi .label{margin-top:8px;color:#203a50;font-size:14px;font-weight:950;letter-spacing:-.2px}
+    .kpi .desc{margin-top:8px;color:#607385;font-size:12px;font-weight:650;line-height:1.42}
+
+    .flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .flow-card{padding:20px;min-height:230px;position:relative;overflow:hidden}
+    .flow-card:before{content:attr(data-step);display:inline-grid;place-items:center;width:38px;height:38px;border-radius:15px;background:#eef9fb;border:1px solid #ccecf3;color:var(--blue);font-weight:950;letter-spacing:-.3px}
+    .flow-card h3{margin:14px 0 8px;color:#153047;font-size:18px;line-height:1.16;letter-spacing:-.35px;font-weight:950}
+    .flow-card p{margin:0;color:#53697a;font-size:13px;font-weight:650;line-height:1.45}
+    .mini-list{display:grid;gap:7px;margin-top:13px}
+    .mini-list span{display:flex;gap:8px;color:#40566a;font-size:12px;font-weight:750;line-height:1.35}
+    .mini-list span:before{content:"✓";color:var(--blue);font-weight:950;flex:0 0 auto}
+
+    .project-panel{padding:18px}
+    .project-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;align-items:stretch}
+    .main-exp{border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,#ffffff,#f8fcfd);padding:20px;min-height:100%}
+    .exp-top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:15px}
+    .exp-top h3{margin:0;color:var(--blue);font-size:22px;font-weight:950;letter-spacing:-.4px}
+    .exp-top p{margin:5px 0 0;color:#53697a;font-size:13px;font-weight:700}
+    .period{flex:0 0 auto;display:inline-flex;padding:7px 10px;border-radius:999px;background:#eef9fb;border:1px solid #ccecf3;color:var(--blue);font-size:12px;font-weight:950}
+    .exp-bullets{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .exp-bullet{border:1px solid var(--line);border-radius:16px;background:#fff;padding:13px;min-height:96px}
+    .exp-bullet b{display:block;color:#173149;font-size:13px;font-weight:950;margin-bottom:5px}
+    .exp-bullet span{display:block;color:#5b6f80;font-size:12px;font-weight:650;line-height:1.42}
+    .project-list{display:grid;gap:11px}
+    .project-card{border:1px solid var(--line);border-radius:18px;background:#fff;padding:15px;min-height:112px}
+    .project-title{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px}
+    .project-title h3{margin:0;color:var(--blue);font-size:16px;line-height:1.18;font-weight:950}
+    .badge{display:inline-flex;align-items:center;white-space:nowrap;border:1px solid #f0dca8;border-radius:999px;background:#fff8e7;color:#765b17;padding:5px 8px;font-size:10px;font-weight:950;letter-spacing:.2px}
+    .project-card p{margin:0;color:#556a7b;font-size:12.5px;font-weight:650;line-height:1.45}
+
+    .dashboard-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .dash-card{padding:20px;min-height:350px}
+    .dash-card h3{margin:0 0 14px;color:#173149;font-size:18px;font-weight:950;letter-spacing:-.35px}
+    .evidence{display:grid;gap:10px}
+    .evidence-row{display:grid;grid-template-columns:170px 1fr 102px;gap:11px;align-items:center}
+    .evidence-name{font-size:12.5px;color:#203a50;font-weight:950}
+    .track{height:12px;border-radius:999px;background:#eaf2f6;overflow:hidden;box-shadow:inset 0 1px 2px rgba(15,37,55,.08)}
+    .fill{width:var(--w);height:100%;border-radius:999px;background:linear-gradient(90deg,var(--blue2),var(--cyan))}
+    .level{font-size:11px;font-weight:950;color:var(--blue);text-align:right}
+    .matrix{display:grid;gap:9px}
+    .matrix-row{display:grid;grid-template-columns:150px repeat(3,1fr);gap:8px;align-items:stretch}
+    .matrix-head{display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-size:10px;font-weight:950;text-transform:uppercase;letter-spacing:.35px}
+    .matrix-name{display:flex;align-items:center;color:#203a50;font-size:12.5px;font-weight:950}
+    .cell{min-height:34px;border-radius:12px;border:1px solid var(--line);background:#f3f8fb;display:grid;place-items:center;color:#8a98a4;font-size:12px;font-weight:950}
+    .cell.on{background:#eaf9fb;border-color:#c8ecf2;color:var(--blue)}
+    .cell.strong{background:linear-gradient(135deg,#eaf9fb,#fff7e7);border-color:#bce8f1;color:var(--blue)}
+
+    .tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .tool-card{padding:17px;min-height:154px}
+    .tool-card h3{margin:0 0 10px;color:var(--blue);font-size:16px;font-weight:950;letter-spacing:-.2px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{padding:7px 9px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#2d485e;font-size:12px;font-weight:850}
+
+    .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .time-card{padding:17px;min-height:166px}
+    .time-card .date{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px;font-weight:950}
+    .time-card h3{margin:8px 0;color:var(--blue);font-size:17px;font-weight:950;letter-spacing:-.25px}
+    .time-card p{margin:0;color:#53697a;font-size:13px;font-weight:650;line-height:1.45}
+
+    .roles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .role-card{padding:17px;min-height:160px}
+    .role-card .fit{display:inline-flex;padding:5px 9px;border-radius:999px;background:#eef9fb;border:1px solid #ccecf3;color:var(--blue);font-size:10px;font-weight:950;letter-spacing:.3px;text-transform:uppercase}
+    .role-card h3{margin:12px 0 7px;color:#173149;font-size:16px;line-height:1.18;font-weight:950;letter-spacing:-.25px}
+    .role-card p{margin:0;color:#53697a;font-size:12.5px;font-weight:650;line-height:1.43}
+
+    .footer-card{padding:22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+    .footer-card h2{font-size:24px}
+    .footer-card p{margin:8px 0 0;color:#53697a;font-size:13px;font-weight:700}
+    footer{padding:28px 0 42px;color:var(--muted);font-size:12px;text-align:center;font-weight:700}
+
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease, transform .55s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
 
     @media(max-width:1080px){
-      .hero-card,.experience-grid,.chart-layout,.scan-grid{grid-template-columns:1fr}
-      .fit-strip,.map-grid,.timeline{grid-template-columns:repeat(2,1fr)}
-      .role-grid{grid-template-columns:1fr}
-      .path-grid{grid-template-columns:repeat(3,1fr)}
+      .hero-grid,.project-grid,.dashboard-layout{grid-template-columns:1fr}
+      .snapshot{grid-template-columns:repeat(3,1fr)}
+      .flow-grid,.tools-grid,.roles{grid-template-columns:repeat(2,1fr)}
+      .profile-card{grid-template-columns:130px 1fr;justify-items:start;align-items:center}
+      .mini-name{text-align:left}
+      .contact-list{grid-column:1 / -1}
+      .section-note{text-align:left}
+      .section-head{align-items:flex-start;flex-direction:column}
       .nav a{display:none}
-      .hero-main{max-width:none}
-      .hero-side{
-        max-width:none;
-        grid-template-columns:112px 1fr;
-        grid-template-rows:auto;
-        justify-items:start;
-        align-items:center;
-      }
     }
-
     @media(max-width:740px){
-      .natural-row{grid-template-columns:1fr}
-      .level-text{text-align:left}
+      .snapshot,.flow-grid,.tools-grid,.timeline,.roles{grid-template-columns:1fr}
+      .hero-grid{padding:22px}
+      .profile-card{grid-template-columns:1fr}
+      .evidence-row{grid-template-columns:1fr}
+      .level{text-align:left}
       .matrix-row{grid-template-columns:1fr repeat(3,1fr)}
-      .matrix-name{grid-column:1 / -1}
-      .task-grid{grid-template-columns:1fr}
-    }
-
-    @media(max-width:680px){
-      .wrap{width:min(100% - 22px,var(--max))}
-      .top-inner{height:62px}
-      .brand-text span{display:none}
-      .hero{padding-top:22px}
-      .hero-card{padding:22px}
-      .hero-side{
-        grid-template-columns:1fr;
-        justify-items:start;
-      }
-      .avatar{width:108px;height:108px}
-      .fit-strip,.map-grid,.path-grid,.timeline{grid-template-columns:1fr}
+      .matrix-name{grid-column:1/-1}
+      .exp-bullets{grid-template-columns:1fr}
+      .footer-card{grid-template-columns:1fr}
       .contact-row{grid-template-columns:1fr;gap:2px}
-      .section-head{display:block}
-      .exp-header{display:block}
-      .period-badge{display:inline-flex;margin-top:10px}
-      h1{letter-spacing:-1.2px}
+      .exp-top{display:block}
+      .period{margin-top:10px}
     }
-
+    @media(max-width:560px){
+      .wrap{width:min(100% - 22px,var(--max))}
+      .top-inner{min-height:62px}
+      .brand-title span{display:none}
+      .hero{padding-top:22px}
+      h1{letter-spacing:-1.2px}
+      .headline{letter-spacing:-.45px}
+    }
     @media print{
-      body{background:#fff}
-      .top,.cta-row,footer{display:none!important}
+      body{background:#fff;color:#111}
+      .top,.hero-actions,footer{display:none!important}
       .wrap{width:100%;max-width:none}
-      .hero{padding:0 0 8px}
-      section{padding:8px 0}
-      .panel,.fit-card,.chart-card,.map-card,.step,.role-card,.time-card,.project-card{box-shadow:none;break-inside:avoid}
-      .hero-card,.experience-grid,.chart-layout,.scan-grid{grid-template-columns:1fr 1fr}
-      .fit-strip,.map-grid{grid-template-columns:repeat(4,1fr)}
+      section,.hero{padding:7px 0}
+      .panel,.kpi,.flow-card,.project-card,.dash-card,.tool-card,.time-card,.role-card{box-shadow:none;break-inside:avoid}
+      .hero-grid,.project-grid,.dashboard-layout{grid-template-columns:1fr 1fr}
+      .snapshot{grid-template-columns:repeat(5,1fr)}
+      .flow-grid,.tools-grid,.roles{grid-template-columns:repeat(4,1fr)}
       .timeline{grid-template-columns:repeat(3,1fr)}
-      .path-grid{grid-template-columns:repeat(6,1fr)}
-      .role-grid{grid-template-columns:repeat(3,1fr)}
+      .reveal{opacity:1!important;transform:none!important}
     }
   </style>
 </head>
-
 <body>
   <header class="top">
     <div class="wrap top-inner">
-      <a class="brand" href="#top">
+      <a class="brand" href="#top" aria-label="Nguyễn Dương Yến Phi">
         <span class="mark">YP</span>
-        <span class="brand-text">
+        <span class="brand-title">
           <strong>Nguyễn Dương Yến Phi</strong>
-          <span>Phân tích ứng dụng, quy trình, dữ liệu và hỗ trợ người dùng</span>
+          <span>Business System · ERP · Data · Dashboard</span>
         </span>
       </a>
-
-      <nav class="nav">
-        <a href="#overview">Tổng quan</a>
-        <a href="#experience">Kinh nghiệm</a>
-        <a href="#charts">Năng lực</a>
-        <a href="#path">Cách làm việc</a>
-        <a href="#roles">Vai trò</a>
-        <button class="pdf" onclick="window.print()">PDF</button>
+      <nav class="nav" aria-label="Điều hướng">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#system">System</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#roles">Roles</a>
+        <button class="print-btn" type="button" onclick="window.print()">PDF</button>
       </nav>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero" id="overview">
+    <section class="hero">
       <div class="wrap">
-        <div class="panel hero-card">
+        <div class="panel hero-grid reveal">
           <div class="hero-main">
-            <div class="badge">Quy trình · Dữ liệu · Người dùng · Hệ thống</div>
+            <div class="eyebrow">Process → Data → Dashboard → Adoption</div>
             <h1>Nguyễn Dương Yến Phi</h1>
-            <div class="role">Chuyên viên phân tích ứng dụng & quy trình doanh nghiệp</div>
-            <p class="one-line">
-              Có nền tảng ERP và tài chính – kế toán; từng tham gia các công việc liên quan đến hệ thống, dữ liệu,
-              báo cáo, kiểm thử và hỗ trợ người dùng trong môi trường dự án doanh nghiệp.
+            <div class="headline">Business System & Data Dashboard Analyst</div>
+            <p class="intro">
+              Có kinh nghiệm làm việc với hệ thống quản lý doanh nghiệp, dữ liệu và báo cáo trong môi trường ERP. Trọng tâm là hiểu quy trình vận hành, dựng lớp dữ liệu/báo cáo, kiểm tra số liệu và hỗ trợ người dùng đưa hệ thống vào sử dụng thực tế.
             </p>
-
-            <div class="summary-pills">
-              <span class="pill">ERP / Phần mềm quản lý</span>
-              <span class="pill">Phân tích quy trình</span>
-              <span class="pill">Kiểm tra dữ liệu</span>
-              <span class="pill">UAT</span>
-              <span class="pill">Báo cáo</span>
-              <span class="pill">Nền tảng tài chính</span>
+            <div class="hero-tags">
+              <span class="tag hot">Build hệ thống</span>
+              <span class="tag hot">Dashboard & Reporting</span>
+              <span class="tag">ERP / SAP</span>
+              <span class="tag">Data checking</span>
+              <span class="tag">UAT</span>
+              <span class="tag">User support</span>
             </div>
-
-            <div class="cta-row">
+            <div class="hero-actions">
               <a class="btn primary" href="mailto:yenphind@gmail.com">Email</a>
               <a class="btn" href="tel:+84865366937">Gọi điện</a>
-              <a class="btn" href="#experience">Xem kinh nghiệm</a>
-              <button class="btn" onclick="window.print()">Tải PDF</button>
+              <a class="btn" href="#projects">Xem dự án</a>
+              <button class="btn" type="button" onclick="window.print()">Tải PDF</button>
             </div>
           </div>
 
-          <aside class="hero-side">
-            <div class="avatar">
-              <img src="https://res.cloudinary.com/df9to3mya/image/upload/v1759323307/IMG_20251001_195426_a6dijb.png" alt="Nguyễn Dương Yến Phi" onerror="this.remove()" />
+          <aside class="profile-card">
+            <div class="avatar" aria-hidden="true">
+              <img src="https://res.cloudinary.com/df9to3mya/image/upload/v1759323307/IMG_20251001_195426_a6dijb.png" alt="Nguyễn Dương Yến Phi" onerror="this.remove(); this.parentElement.textContent='YP';" />
             </div>
-            <div class="contact">
+            <div class="mini-name">
+              <b>Nguyễn Dương Yến Phi</b>
+              <span>ERP · Data · Business System</span>
+            </div>
+            <div class="contact-list">
               <div class="contact-row"><b>Email</b><span><a href="mailto:yenphind@gmail.com">yenphind@gmail.com</a></span></div>
-              <div class="contact-row"><b>Điện thoại</b><span><a href="tel:+84865366937">086-536-6937</a></span></div>
+              <div class="contact-row"><b>Phone</b><span><a href="tel:+84865366937">086-536-6937</a></span></div>
               <div class="contact-row"><b>Facebook</b><span><a href="https://fb.com/phinguyen.snow3107" target="_blank" rel="noopener">fb.com/phinguyen.snow3107</a></span></div>
-              <div class="contact-row"><b>Trọng tâm</b><span>Quy trình · Dữ liệu · Ứng dụng · Người dùng</span></div>
+              <div class="contact-row"><b>Focus</b><span>Quy trình · Dữ liệu · Báo cáo · Vận hành</span></div>
             </div>
           </aside>
         </div>
+      </div>
+    </section>
 
-        <div class="fit-strip">
-          <div class="panel fit-card">
-            <div class="label">Điểm mạnh</div>
-            <div class="title">Hiểu quy trình</div>
-            <div class="desc">Nhìn được luồng công việc, điểm nghẽn và nhu cầu giữa các phòng ban.</div>
+    <section id="snapshot">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Career Snapshot</h2>
+          <p class="section-note">Tóm tắt nhanh theo góc nhìn vận hành hệ thống và dashboard.</p>
+        </div>
+        <div class="snapshot">
+          <div class="panel kpi reveal">
+            <div class="num">3+ năm</div>
+            <div class="label">ERP & Business System</div>
+            <div class="desc">Kinh nghiệm trong dự án hệ thống doanh nghiệp, dữ liệu, báo cáo và người dùng.</div>
           </div>
-          <div class="panel fit-card">
-            <div class="label">Điểm mạnh</div>
-            <div class="title">Kiểm tra dữ liệu</div>
-            <div class="desc">Có nền tài chính – kế toán để đối chiếu số liệu và báo cáo.</div>
+          <div class="panel kpi reveal">
+            <div class="num">SAP</div>
+            <div class="label">BPC · BW · SAC · BOBJ</div>
+            <div class="desc">Từng tham gia model, logic xử lý, báo cáo và lớp dữ liệu.</div>
           </div>
-          <div class="panel fit-card">
-            <div class="label">Điểm mạnh</div>
-            <div class="title">Hỗ trợ người dùng</div>
-            <div class="desc">Ghi nhận vấn đề, hướng dẫn thao tác, kiểm thử và theo dõi kết quả.</div>
+          <div class="panel kpi reveal">
+            <div class="num">4</div>
+            <div class="label">Dự án tiêu biểu</div>
+            <div class="desc">Phát Đạt, Filmore, Coteccons & An Gia, CITEK.</div>
           </div>
-          <div class="panel fit-card">
-            <div class="label">Điểm mạnh</div>
-            <div class="title">Thích nghi hệ thống</div>
-            <div class="desc">Có thể tiếp cận nhiều phần mềm quản lý và nền tảng dữ liệu khác nhau.</div>
+          <div class="panel kpi reveal">
+            <div class="num">UAT</div>
+            <div class="label">Testing & User Adoption</div>
+            <div class="desc">Soạn test case, hỗ trợ kiểm thử, ghi nhận lỗi và hướng dẫn người dùng.</div>
+          </div>
+          <div class="panel kpi reveal">
+            <div class="num">ERP</div>
+            <div class="label">UEH Foundation</div>
+            <div class="desc">Nền tảng quy trình doanh nghiệp, cơ sở dữ liệu, SQL, phân tích hệ thống và kế toán.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="experience">
+    <section id="system">
       <div class="wrap">
         <div class="section-head">
-          <h2>Kinh nghiệm</h2>
+          <h2>System Building Map</h2>
+          <p class="section-note">Cách năng lực được thể hiện: không chỉ dùng hệ thống, mà tham gia dựng dữ liệu, logic, báo cáo và hỗ trợ vận hành.</p>
         </div>
-
-        <div class="experience-grid">
-          <article class="panel main-exp">
-            <div class="exp-header">
-              <div class="exp-title">
-                <h3>FPT IS</h3>
-                <p>Kinh nghiệm chính trong các công việc liên quan ERP, dữ liệu, báo cáo, kiểm thử và hỗ trợ người dùng.</p>
-              </div>
-              <div class="period-badge">03/2022 – 05/2025</div>
-            </div>
-
-            <div class="task-grid">
-              <div class="task">
-                <b>Phân tích & ghi nhận yêu cầu</b>
-                <span>Làm việc với nghiệp vụ, đọc tài liệu giải pháp, ghi nhận vấn đề và đối chiếu quy trình.</span>
-              </div>
-              <div class="task">
-                <b>Dữ liệu & báo cáo</b>
-                <span>Xây dựng model, báo cáo, kiểm tra dữ liệu và xử lý logic trên BPC, BW, SAC.</span>
-              </div>
-              <div class="task">
-                <b>Kiểm thử & hướng dẫn</b>
-                <span>Soạn test case, hỗ trợ UAT, hướng dẫn người dùng và ghi nhận phản hồi sau kiểm thử.</span>
-              </div>
-              <div class="task">
-                <b>Hỗ trợ vận hành</b>
-                <span>Theo dõi lỗi phát sinh, phối hợp đội dự án và key users để xử lý theo phạm vi hệ thống.</span>
-              </div>
+        <div class="flow-grid">
+          <article class="panel flow-card reveal" data-step="01">
+            <h3>Understand Process</h3>
+            <p>Hiểu luồng nghiệp vụ, mục tiêu vận hành và vấn đề người dùng đang gặp.</p>
+            <div class="mini-list">
+              <span>Ghi nhận yêu cầu</span>
+              <span>Đối chiếu quy trình</span>
+              <span>Làm việc với nghiệp vụ</span>
             </div>
           </article>
+          <article class="panel flow-card reveal" data-step="02">
+            <h3>Build Data Logic</h3>
+            <p>Chuyển nhu cầu thành model, logic xử lý hoặc cấu trúc dữ liệu.</p>
+            <div class="mini-list">
+              <span>Model dữ liệu</span>
+              <span>Script logic</span>
+              <span>Kiểm tra sai lệch</span>
+            </div>
+          </article>
+          <article class="panel flow-card reveal" data-step="03">
+            <h3>Dashboard & Report</h3>
+            <p>Dựng báo cáo phục vụ theo dõi, đối chiếu và ra quyết định quản trị.</p>
+            <div class="mini-list">
+              <span>BPC / BW / SAC</span>
+              <span>BOBJ / BI report</span>
+              <span>Data checking</span>
+            </div>
+          </article>
+          <article class="panel flow-card reveal" data-step="04">
+            <h3>Test & Adoption</h3>
+            <p>Kiểm thử, ghi nhận phản hồi và hỗ trợ người dùng sử dụng hệ thống.</p>
+            <div class="mini-list">
+              <span>Test case</span>
+              <span>UAT</span>
+              <span>User guide</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-          <div class="project-list">
-            <article class="project-card">
-              <div class="project-top">
-                <h3>Phát Đạt</h3>
-                <span class="tag">BPC · BW</span>
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Project Dashboard</h2>
+          <p class="section-note">Tập trung vào phần đã làm trong dự án: quy trình, dữ liệu, báo cáo, kiểm thử và hỗ trợ người dùng.</p>
+        </div>
+        <div class="panel project-panel reveal">
+          <div class="project-grid">
+            <article class="main-exp">
+              <div class="exp-top">
+                <div>
+                  <h3>FPT IS</h3>
+                  <p>ERP / Business System / Data & Reporting</p>
+                </div>
+                <span class="period">03/2022 – 05/2025</span>
               </div>
-              <p>Xây dựng model, script logic và hỗ trợ các công việc liên quan SAP BW/BPC.</p>
+              <div class="exp-bullets">
+                <div class="exp-bullet"><b>Yêu cầu & quy trình</b><span>Ghi nhận yêu cầu, đối chiếu tài liệu giải pháp và hỗ trợ nghiệp vụ theo phạm vi dự án.</span></div>
+                <div class="exp-bullet"><b>Dữ liệu & báo cáo</b><span>Xây dựng model, logic xử lý và báo cáo trên BPC, BW, SAC; kiểm tra dữ liệu và số liệu báo cáo.</span></div>
+                <div class="exp-bullet"><b>Kiểm thử</b><span>Soạn test case, hỗ trợ UAT, ghi nhận lỗi và theo dõi phản hồi từ người dùng.</span></div>
+                <div class="exp-bullet"><b>Hỗ trợ vận hành</b><span>Hướng dẫn thao tác, ghi nhận phát sinh và phối hợp đội dự án xử lý vấn đề.</span></div>
+              </div>
             </article>
+            <div class="project-list">
+              <article class="project-card">
+                <div class="project-title"><h3>Phát Đạt</h3><span class="badge">BPC · BW</span></div>
+                <p>Xây dựng model, script logic, hỗ trợ dữ liệu và báo cáo trên hệ thống.</p>
+              </article>
+              <article class="project-card">
+                <div class="project-title"><h3>Filmore</h3><span class="badge">MM · RE · CCM</span></div>
+                <p>Hỗ trợ nghiệp vụ, kiểm tra dữ liệu, kiểm thử người dùng và xử lý phát sinh trong quá trình triển khai/vận hành.</p>
+              </article>
+              <article class="project-card">
+                <div class="project-title"><h3>Coteccons & An Gia</h3><span class="badge">MM · RE · CCM</span></div>
+                <p>Hỗ trợ dữ liệu, kiểm thử và xử lý các tình huống phát sinh theo phạm vi dự án.</p>
+              </article>
+              <article class="project-card">
+                <div class="project-title"><h3>CITEK</h3><span class="badge">SAC</span></div>
+                <p>Hỗ trợ dự án SAP, làm quen quy trình triển khai thực tế và xây dựng hệ thống SAC theo giải pháp.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <article class="project-card">
-              <div class="project-top">
-                <h3>Filmore</h3>
-                <span class="tag">MM · RE · CCM</span>
-              </div>
-              <p>Hỗ trợ nghiệp vụ, kiểm tra dữ liệu, phối hợp xử lý phát sinh và hỗ trợ người dùng trong kiểm thử/vận hành.</p>
-            </article>
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Capability Dashboard</h2>
+          <p class="section-note">Không dùng điểm phần trăm tự chấm; thể hiện bằng mức tiếp xúc và bằng chứng công việc.</p>
+        </div>
+        <div class="dashboard-layout">
+          <div class="panel dash-card reveal">
+            <h3>Mức độ tiếp xúc trong công việc</h3>
+            <div class="evidence">
+              <div class="evidence-row"><div class="evidence-name">Data & Reporting</div><div class="track"><div class="fill" style="--w:88%"></div></div><div class="level">Đã làm dự án</div></div>
+              <div class="evidence-row"><div class="evidence-name">Testing / UAT</div><div class="track"><div class="fill" style="--w:86%"></div></div><div class="level">Đã làm dự án</div></div>
+              <div class="evidence-row"><div class="evidence-name">User Support</div><div class="track"><div class="fill" style="--w:84%"></div></div><div class="level">Đã làm dự án</div></div>
+              <div class="evidence-row"><div class="evidence-name">Process Analysis</div><div class="track"><div class="fill" style="--w:80%"></div></div><div class="level">Có kinh nghiệm</div></div>
+              <div class="evidence-row"><div class="evidence-name">ERP / SAP</div><div class="track"><div class="fill" style="--w:80%"></div></div><div class="level">Có kinh nghiệm</div></div>
+              <div class="evidence-row"><div class="evidence-name">SQL / Python</div><div class="track"><div class="fill" style="--w:52%"></div></div><div class="level">Nền tảng</div></div>
+            </div>
+          </div>
+          <div class="panel dash-card reveal">
+            <h3>Evidence Matrix</h3>
+            <div class="matrix">
+              <div class="matrix-row"><div></div><div class="matrix-head">Dự án</div><div class="matrix-head">Nền tảng</div><div class="matrix-head">Cơ bản</div></div>
+              <div class="matrix-row"><div class="matrix-name">BPC / BW / SAC</div><div class="cell strong">●</div><div class="cell on">●</div><div class="cell">–</div></div>
+              <div class="matrix-row"><div class="matrix-name">BOBJ / BI Report</div><div class="cell on">●</div><div class="cell on">●</div><div class="cell">–</div></div>
+              <div class="matrix-row"><div class="matrix-name">MM / RE / CCM</div><div class="cell strong">●</div><div class="cell on">●</div><div class="cell">–</div></div>
+              <div class="matrix-row"><div class="matrix-name">UAT / Test case</div><div class="cell strong">●</div><div class="cell on">●</div><div class="cell">–</div></div>
+              <div class="matrix-row"><div class="matrix-name">Excel / Sheets</div><div class="cell strong">●</div><div class="cell on">●</div><div class="cell">–</div></div>
+              <div class="matrix-row"><div class="matrix-name">SQL / Python</div><div class="cell">–</div><div class="cell on">●</div><div class="cell strong">●</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <article class="project-card">
-              <div class="project-top">
-                <h3>Coteccons & An Gia</h3>
-                <span class="tag">MM · RE · CCM</span>
-              </div>
-              <p>Hỗ trợ theo phạm vi nghiệp vụ dự án, gồm dữ liệu, kiểm thử và xử lý các tình huống phát sinh.</p>
-            </article>
-
-            <article class="project-card">
-              <div class="project-top">
-                <h3>CITEK</h3>
-                <span class="tag">SAC</span>
-              </div>
-              <p>Hỗ trợ dự án SAP, tiếp cận quy trình triển khai và xây dựng hệ thống SAC theo giải pháp.</p>
-            </article>
+    <section id="tools">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Toolkit</h2>
+          <p class="section-note">Nhóm công cụ theo mục đích sử dụng để dễ đọc với cả công ty vận hành, không chỉ công ty triển khai phần mềm.</p>
+        </div>
+        <div class="tools-grid">
+          <div class="panel tool-card reveal">
+            <h3>ERP / System</h3>
+            <div class="chips"><span class="chip">SAP BPC</span><span class="chip">SAP BW</span><span class="chip">SAP SAC</span><span class="chip">SAP BOBJ</span><span class="chip">MM</span><span class="chip">RE</span><span class="chip">CCM</span></div>
+          </div>
+          <div class="panel tool-card reveal">
+            <h3>Data / Report</h3>
+            <div class="chips"><span class="chip">Model dữ liệu</span><span class="chip">Report logic</span><span class="chip">Data checking</span><span class="chip">Excel</span><span class="chip">Google Sheets</span></div>
+          </div>
+          <div class="panel tool-card reveal">
+            <h3>Process / Testing</h3>
+            <div class="chips"><span class="chip">Requirement</span><span class="chip">UAT</span><span class="chip">Test case</span><span class="chip">User guide</span><span class="chip">UML / Visio</span></div>
+          </div>
+          <div class="panel tool-card reveal">
+            <h3>Foundation</h3>
+            <div class="chips"><span class="chip">ERP</span><span class="chip">SQL cơ bản</span><span class="chip">Python cơ bản</span><span class="chip">C# cơ bản</span><span class="chip">Kế toán - tài chính</span></div>
           </div>
         </div>
       </div>
@@ -971,179 +533,24 @@
     <section id="timeline">
       <div class="wrap">
         <div class="section-head">
-          <h2>Dòng thời gian</h2>
+          <h2>Timeline</h2>
+          <p class="section-note">Mốc học tập và kinh nghiệm chính.</p>
         </div>
-
         <div class="timeline">
-          <div class="time-card">
-            <div class="period">09/2018 – 11/2022</div>
+          <div class="panel time-card reveal">
+            <div class="date">09/2018 – 11/2022</div>
             <h3>ĐH Kinh tế TP.HCM · ERP</h3>
-            <p>ERP, quy trình doanh nghiệp, cơ sở dữ liệu, SQL, UML, phân tích thiết kế hệ thống, trợ giảng ERP.</p>
+            <p>ERP, quy trình doanh nghiệp, cơ sở dữ liệu, SQL, UML, phân tích thiết kế hệ thống, kế toán – tài chính. Đồ án: hệ thống thư viện. Trợ giảng ERP.</p>
           </div>
-
-          <div class="time-card">
-            <div class="period">2021</div>
-            <h3>CITEK</h3>
-            <p>Hỗ trợ dự án SAP và làm quen quy trình triển khai thực tế. Dữ liệu gốc có khác biệt mốc tháng nên đang ghi theo năm.</p>
+          <div class="panel time-card reveal">
+            <div class="date">2021</div>
+            <h3>CITEK · SAP Project Support</h3>
+            <p>Hỗ trợ dự án SAP, làm quen quy trình triển khai thực tế và xây dựng hệ thống SAC theo giải pháp.</p>
           </div>
-
-          <div class="time-card">
-            <div class="period">03/2022 – 05/2025</div>
-            <h3>FPT IS</h3>
-            <p>Tham gia các công việc về ERP, BPC, BW, SAC, báo cáo, UAT, hướng dẫn người dùng và dữ liệu.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="charts">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Biểu đồ năng lực</h2>
-        </div>
-
-        <div class="chart-layout">
-          <div class="panel chart-card">
-            <div class="card-title">
-              <h3>Mức độ tiếp xúc trong công việc</h3>
-            </div>
-
-            <div class="natural-bars">
-              <div class="natural-row">
-                <div class="natural-label">Hỗ trợ người dùng</div>
-                <div class="level-track"><div class="level-fill" style="--w:92%"></div></div>
-                <div class="level-text">Mạnh</div>
-              </div>
-              <div class="natural-row">
-                <div class="natural-label">Kiểm thử / UAT</div>
-                <div class="level-track"><div class="level-fill" style="--w:88%"></div></div>
-                <div class="level-text">Mạnh</div>
-              </div>
-              <div class="natural-row">
-                <div class="natural-label">Dữ liệu & báo cáo</div>
-                <div class="level-track"><div class="level-fill" style="--w:84%"></div></div>
-                <div class="level-text">Tốt</div>
-              </div>
-              <div class="natural-row">
-                <div class="natural-label">Phân tích quy trình</div>
-                <div class="level-track"><div class="level-fill" style="--w:82%"></div></div>
-                <div class="level-text">Tốt</div>
-              </div>
-              <div class="natural-row">
-                <div class="natural-label">ERP / Phần mềm quản lý</div>
-                <div class="level-track"><div class="level-fill" style="--w:80%"></div></div>
-                <div class="level-text">Tốt</div>
-              </div>
-              <div class="natural-row">
-                <div class="natural-label">SQL / Python</div>
-                <div class="level-track"><div class="level-fill" style="--w:52%"></div></div>
-                <div class="level-text">Cơ bản</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel chart-card">
-            <div class="card-title">
-              <h3>Ma trận kỹ năng</h3>
-            </div>
-
-            <div class="matrix">
-              <div class="matrix-row">
-                <div></div>
-                <div class="matrix-head">Dự án</div>
-                <div class="matrix-head">Có nền tảng</div>
-                <div class="matrix-head">Cơ bản</div>
-              </div>
-
-              <div class="matrix-row">
-                <div class="matrix-name">BPC / BW / SAC</div>
-                <div class="cell strong">●</div>
-                <div class="cell on">●</div>
-                <div class="cell">–</div>
-              </div>
-
-              <div class="matrix-row">
-                <div class="matrix-name">MM / RE / CCM</div>
-                <div class="cell strong">●</div>
-                <div class="cell on">●</div>
-                <div class="cell">–</div>
-              </div>
-
-              <div class="matrix-row">
-                <div class="matrix-name">UAT / Hướng dẫn</div>
-                <div class="cell strong">●</div>
-                <div class="cell on">●</div>
-                <div class="cell">–</div>
-              </div>
-
-              <div class="matrix-row">
-                <div class="matrix-name">Excel / Báo cáo</div>
-                <div class="cell strong">●</div>
-                <div class="cell on">●</div>
-                <div class="cell">–</div>
-              </div>
-
-              <div class="matrix-row">
-                <div class="matrix-name">SQL / Python</div>
-                <div class="cell">–</div>
-                <div class="cell on">●</div>
-                <div class="cell strong">●</div>
-              </div>
-
-              <div class="matrix-row">
-                <div class="matrix-name">Tài chính – kế toán</div>
-                <div class="cell">–</div>
-                <div class="cell strong">●</div>
-                <div class="cell on">●</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="path">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Cách làm việc</h2>
-        </div>
-
-        <div class="path-grid">
-          <div class="step"><div class="n">01</div><b>Hiểu yêu cầu</b><span>Hiểu người dùng, mục tiêu và vấn đề đang gặp.</span></div>
-          <div class="step"><div class="n">02</div><b>Vẽ luồng</b><span>Sắp xếp quy trình, bước xử lý và điểm kết nối.</span></div>
-          <div class="step"><div class="n">03</div><b>Kiểm tra</b><span>Đối chiếu dữ liệu, báo cáo và sai lệch phát sinh.</span></div>
-          <div class="step"><div class="n">04</div><b>Kiểm thử</b><span>Thực hiện UAT, ghi nhận kết quả và phản hồi.</span></div>
-          <div class="step"><div class="n">05</div><b>Hướng dẫn</b><span>Hỗ trợ người dùng thao tác và sử dụng đúng quy trình.</span></div>
-          <div class="step"><div class="n">06</div><b>Cải tiến</b><span>Đề xuất thay đổi nhỏ, rõ ràng và thực tế.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="systems">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Hệ thống & công cụ</h2>
-        </div>
-
-        <div class="map-grid">
-          <div class="map-card" data-type="Đã sử dụng">
-            <h3>SAP</h3>
-            <p>BPC, BW, SAC, BOBJ; từng làm với các phạm vi MM, RE, CCM trong dự án.</p>
-          </div>
-
-          <div class="map-card" data-type="Báo cáo">
-            <h3>Office & báo cáo</h3>
-            <p>Excel, Google Sheets, PowerPoint, đối chiếu dữ liệu và trình bày kết quả.</p>
-          </div>
-
-          <div class="map-card" data-type="Dữ liệu">
-            <h3>Kỹ năng dữ liệu</h3>
-            <p>SQL cơ bản, Python cơ bản, kiểm tra dữ liệu, hiểu cấu trúc bảng và logic báo cáo.</p>
-          </div>
-
-          <div class="map-card" data-type="Thích nghi">
-            <h3>Phần mềm quản lý</h3>
-            <p>Có nền tảng để tiếp cận ERP, phần mềm nội bộ, BI tool hoặc hệ thống mới.</p>
+          <div class="panel time-card reveal">
+            <div class="date">03/2022 – 05/2025</div>
+            <h3>FPT IS · ERP / Data / Reporting</h3>
+            <p>Phân tích yêu cầu, xây dựng model và báo cáo, kiểm tra dữ liệu, UAT, hướng dẫn người dùng và hỗ trợ vận hành.</p>
           </div>
         </div>
       </div>
@@ -1152,77 +559,44 @@
     <section id="roles">
       <div class="wrap">
         <div class="section-head">
-          <h2>Vai trò phù hợp</h2>
+          <h2>Best-fit Roles</h2>
+          <p class="section-note">Định vị cho cả công ty vận hành và công ty hệ thống.</p>
         </div>
-
-        <div class="role-grid">
-          <div class="role-card">
-            <div class="score">Phù hợp cao</div>
-            <h3>Chuyên viên phân tích ứng dụng doanh nghiệp</h3>
-            <ul>
-              <li>Theo dõi yêu cầu và quy trình.</li>
-              <li>Hỗ trợ người dùng hệ thống.</li>
-              <li>Kiểm thử và ghi nhận thay đổi.</li>
-            </ul>
+        <div class="roles">
+          <div class="panel role-card reveal">
+            <span class="fit">High fit</span>
+            <h3>Business System Analyst</h3>
+            <p>Phù hợp với vai trò phân tích quy trình, dữ liệu và nhu cầu hệ thống trong doanh nghiệp vận hành.</p>
           </div>
-
-          <div class="role-card">
-            <div class="score">Phù hợp cao</div>
-            <h3>Chuyên viên ERP / phân tích hệ thống</h3>
-            <ul>
-              <li>Hiểu luồng nghiệp vụ trong hệ thống.</li>
-              <li>Làm việc với dữ liệu và báo cáo.</li>
-              <li>Phối hợp với IT, đối tác và phòng ban.</li>
-            </ul>
+          <div class="panel role-card reveal">
+            <span class="fit">High fit</span>
+            <h3>Data & Reporting Analyst</h3>
+            <p>Phù hợp với công việc kiểm tra dữ liệu, dựng báo cáo và hỗ trợ dashboard quản trị.</p>
           </div>
-
-          <div class="role-card">
-            <div class="score">Phù hợp tốt</div>
-            <h3>Hỗ trợ quy trình & dữ liệu</h3>
-            <ul>
-              <li>Kiểm tra số liệu và quy trình.</li>
-              <li>Làm tài liệu hướng dẫn.</li>
-              <li>Đề xuất cải tiến vận hành.</li>
-            </ul>
+          <div class="panel role-card reveal">
+            <span class="fit">Good fit</span>
+            <h3>ERP / Application Support</h3>
+            <p>Phù hợp với vai trò hỗ trợ hệ thống nội bộ, xử lý yêu cầu người dùng và phối hợp IT/vendor.</p>
+          </div>
+          <div class="panel role-card reveal">
+            <span class="fit">Good fit</span>
+            <h3>Process Improvement</h3>
+            <p>Phù hợp với vai trò chuẩn hóa quy trình, theo dõi vận hành và đề xuất cải tiến dựa trên dữ liệu.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="scan">
+    <section id="contact">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Đọc nhanh</h2>
-        </div>
-
-        <div class="scan-grid">
-          <div class="panel chart-card" style="min-height:auto">
-            <div class="card-title">
-              <h3>Từ khóa hồ sơ</h3>
-            </div>
-            <div class="keyword-cloud">
-              <span class="keyword hot">Ứng dụng doanh nghiệp</span>
-              <span class="keyword hot">ERP</span>
-              <span class="keyword hot">Quy trình</span>
-              <span class="keyword hot">Kiểm tra dữ liệu</span>
-              <span class="keyword">Hỗ trợ người dùng</span>
-              <span class="keyword">Báo cáo</span>
-              <span class="keyword">Nền tảng tài chính</span>
-              <span class="keyword">UAT</span>
-              <span class="keyword">Đào tạo</span>
-              <span class="keyword">Cải tiến hệ thống</span>
-            </div>
+        <div class="panel footer-card reveal">
+          <div>
+            <h2>Nguyễn Dương Yến Phi</h2>
+            <p>Business System · ERP · Data · Dashboard · Process</p>
           </div>
-
-          <div class="panel chart-card" style="min-height:auto">
-            <div class="card-title">
-              <h3>Giá trị chính</h3>
-            </div>
-            <div class="compact-list">
-              <div class="compact-item"><span class="check">✓</span><span>Có nền ERP và tài chính – kế toán, dễ hiểu bài toán hệ thống quản lý.</span></div>
-              <div class="compact-item"><span class="check">✓</span><span>Làm được giữa người dùng, dữ liệu, quy trình và đội kỹ thuật.</span></div>
-              <div class="compact-item"><span class="check">✓</span><span>Không phụ thuộc một phần mềm cụ thể; có thể học và thích nghi theo môi trường.</span></div>
-            </div>
+          <div class="hero-actions" style="margin:0">
+            <a class="btn primary" href="mailto:yenphind@gmail.com">yenphind@gmail.com</a>
+            <a class="btn" href="tel:+84865366937">086-536-6937</a>
           </div>
         </div>
       </div>
@@ -1230,7 +604,16 @@
   </main>
 
   <footer>
-    Nguyễn Dương Yến Phi · CV Online
+    Nguyễn Dương Yến Phi · Business System Dashboard CV
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, {threshold: 0.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
